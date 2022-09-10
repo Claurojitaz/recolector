@@ -13,6 +13,8 @@ public class CronoTiempo : MonoBehaviour
     public GameObject mensaje_final;
     public GameObject puntos1;
     public GameObject boton;
+    public GameObject canvasTr;
+    public GameObject coca;
     public bool initial;
 
     void Start()
@@ -36,6 +38,7 @@ public class CronoTiempo : MonoBehaviour
             //SceneManager.LoadScene("final");
             mensaje_final.SetActive(true);
             puntos1.SetActive(false);
+            coca.SetActive(false);
             tiempoBtn -= Time.deltaTime;
             if (tiempoBtn<=0)
             {
@@ -48,6 +51,12 @@ public class CronoTiempo : MonoBehaviour
             puntos1.SetActive(true);
             boton.SetActive(false);
         }
+        if (tiempo<=25)
+        {
+            canvasTr.SetActive(false);
+        }
+
+
     }
 
     void CalcularTiempo()

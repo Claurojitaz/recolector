@@ -12,6 +12,9 @@ public class GrainController : MonoBehaviour
     public GameObject arboles;
     public GameObject TextoTempo;
     public GameObject ejemplo;
+    public GameObject TextTutorial;
+    public GameObject TextJugar;
+    public GameObject canvasTr;
     public CronoTiempo canvasTime;
 
     /// OnTriggerEnter is called when the Collider other enters the trigger.
@@ -31,6 +34,9 @@ public class GrainController : MonoBehaviour
             canvasTime.initial = true;
             TextoTempo.SetActive(true);
             ejemplo.SetActive(false);
+            TextTutorial.SetActive(false);
+            TextJugar.SetActive(true);
+            canvasTr.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)

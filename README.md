@@ -1,2 +1,2 @@
-# Este Branch se enfoca a desarrollar el Coco - Lengueta - Mesa - Logo
-## asignado al equipo Cardenas - Bravo
+## Este branch esta asociado a la cración de arboles - ramas- hojas y cerezas.
+Asociado: a Giovanny.

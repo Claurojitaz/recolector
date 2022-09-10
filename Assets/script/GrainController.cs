@@ -16,7 +16,13 @@ public class GrainController : MonoBehaviour
     public GameObject TextJugar;
     public GameObject canvasTr;
     public CronoTiempo canvasTime;
+    public WebRequest envioPuntos;
+    public bool conteo;
 
+    void Start()
+    {
+        envioPuntos = GameObject.Find("manager").GetComponent<WebRequest>();
+    }
     /// OnTriggerEnter is called when the Collider other enters the trigger.
     /// <param name="other">The other Collider involved in this collision.</param>
     private void OnTriggerEnter(Collider other)
@@ -24,9 +30,15 @@ public class GrainController : MonoBehaviour
         if (other.gameObject.CompareTag("Grain"))
         {
             other.transform.SetParent(transform);
-            point += other.GetComponent<Point>().point;
-            suma = point;
-            pointText.text = point.ToString();
+            other.GetComponent<ConfiGrain>().grano=this.GetComponent<GrainController>();
+            if (conteo)
+            {
+                point += other.GetComponent<Point>().point;
+                suma = point;
+                pointText.text = point.ToString();
+                envioPuntos.score = point;
+            }
+            
         }
         if (suma == 3)
         {
@@ -46,6 +58,7 @@ public class GrainController : MonoBehaviour
             other.transform.parent=null;
             point -= other.GetComponent<Point>().point;
             pointText.text = point.ToString();
+            envioPuntos.score = point;
         }
     }
 

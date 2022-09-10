@@ -16,12 +16,14 @@ public class CronoTiempo : MonoBehaviour
     public GameObject canvasTr;
     public GameObject coca;
     public bool initial;
-
+    public WebRequest envioInfo;
+    public bool envio;
     void Start()
     {
         int minutos = (int)tiempo / 60;
         int segundos = (int)tiempo % 60;
         tiempotxt.text = minutos.ToString() + ":" + segundos.ToString().PadLeft(2, '0');
+        envioInfo = GameObject.Find("manager").GetComponent<WebRequest>();
     }
 
     // Update is called once per frame
@@ -39,6 +41,11 @@ public class CronoTiempo : MonoBehaviour
             mensaje_final.SetActive(true);
             puntos1.SetActive(false);
             coca.SetActive(false);
+            if (envio)
+            {
+                envioInfo.DataLoadStruct();
+            }
+            envio = false;
             tiempoBtn -= Time.deltaTime;
             if (tiempoBtn<=0)
             {

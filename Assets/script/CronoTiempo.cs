@@ -21,7 +21,8 @@ public class CronoTiempo : MonoBehaviour
     public AudioSource ramas;
     public AudioSource granos_caida;
     public GameObject arboles;
-    public GameObject relleno;
+    //public GameObject relleno;
+    public AudioSource despedida;
     void Start()
     {
         int minutos = (int)tiempo / 60;
@@ -47,7 +48,8 @@ public class CronoTiempo : MonoBehaviour
             puntos1.SetActive(false);
             coca.SetActive(false);
             arboles.SetActive(false);
-            granos_caida.Play();
+            //despedida.Play();
+            //granos_caida.Play();
             if (envio)
             {
                 envioInfo.DataLoadStruct();
@@ -68,7 +70,7 @@ public class CronoTiempo : MonoBehaviour
         if (tiempo <= 38)
         {
             canvasTr.SetActive(false);
-            ramas.Play();
+            //ramas.Play();
         }
         if (tiempo==15)
         {
